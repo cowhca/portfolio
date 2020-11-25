@@ -1,0 +1,177 @@
+:root {
+    --main-white: #f0f0f0;
+    --main-red: #be3144;
+    --main-blue: #45567d;
+    --tint-blue: #58678a;
+    --main-gray: #303841;
+    --tint-gray: #454c54;
+}
+
+html {
+    /* This sets the root font size to 10px, for easier calculation than the default (16px) */
+    font-size: 62.5%; /* 100% / 16px * 10 = 62.5% */
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* I am using the rem unit for breakpoints
+ * The calculation is the following
+ * screen size divided by browser base font size
+ * As an example: a breakpoint at 980px
+ * 980px / 16px = 61.25rem
+ * I think rem is 16px still not 10px because it is in a media query?
+*/
+
+/* 1200px / 16px = 75rem */
+@media (max-width: 75rem) {
+    html {
+        font-size: 60%;
+    }
+}
+
+/* 980px / 16px = 61.25rem */
+@media (max-width: 61.25rem) {
+    html {
+        font-size: 58%;
+    }
+}
+
+/* 460px / 16px = 28.75rem */
+@media (max-width: 28.75rem) {
+    html {
+        font-size: 55%;
+    }
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+body {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Poppins', sans-serif;
+    color: var(--main-white)
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: var(--main-red);
+}
+
+.nav-element {
+    margin: 1.5rem 3rem 1.5rem 3rem;
+}
+.nav-link:hover {
+    background-color: var(--main-blue);
+}
+
+#welcome-section {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(135deg, var(--main-gray), var(--tint-blue));
+}
+
+/* Projects Section */
+
+#projects {
+    padding: 4rem 0;
+    width: 100%;
+    background-color: var(--main-blue);
+    text-align: center;
+    
+}
+#project-header {
+    text-align: center;
+
+}
+hr {
+    width: 70%;
+    margin: auto;
+    background-color: var(--main-white);
+}
+#project-grid {
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    column-gap: 2rem;
+    row-gap: 2rem;
+    padding: 2rem;
+}
+.project-tile {
+    width: 100%;
+    height: 20vh;
+    background-color: var(--main-gray);
+    text-align: center;
+    border-radius: 0.25rem;
+    transition: background-color 0.3s ease-in-out;
+}
+.project-tile:hover {
+    background-color: var(--main-red);
+}
+.project-image {
+    height: 80%;
+    width: auto;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.btn {
+    display: inline-block;
+    width: 9rem;
+    padding: 1rem;
+    border-radius: 0.35rem;
+    height: auto;
+}
+.btn-show-all {
+    background: var(--main-gray);
+    transition: background 0.3s ease-out;
+    margin-bottom: 3rem;
+}
+.btn-show-all:hover {
+    background: var(--main-red);
+}
+.btn-show-all > i {
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease-out;
+}
+.btn-show-all:hover > i {
+    transform: translateX(0.3rem);
+}
+
+/* Contact Section */
+#contact-section {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--main-gray);
+    padding: 3rem 0;
+}
+.btn-contact {
+    width: auto;
+    text-shadow: 2px 2px 1px #1f1f1f;
+    transition: transform 0.3s ease-out;
+}
+.btn-contact:hover {
+    transform: translateY(8px);
+}
