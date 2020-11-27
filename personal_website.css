@@ -68,13 +68,26 @@ body {
     flex-direction: row;
     justify-content: flex-end;
     background-color: var(--main-red);
+    font-family: Calibri,Candara,Segoe,segoe ui,Optima;
 }
 
 .nav-element {
     margin: 1.5rem 3rem 1.5rem 3rem;
+    border-style: solid;
 }
 .nav-link:hover {
     background-color: var(--main-blue);
+}
+#connor-link {
+    width: 100%;
+    border-style: dashed;
+}
+#connor-callahan {
+    border-style: solid;
+    margin: 1.5rem 0 1.5rem 3rem;
+    
+    /* margin-right: 50rem; */
+
 }
 
 #welcome-section {
