@@ -43,7 +43,7 @@ html {
 /* 460px / 16px = 28.75rem */
 @media (max-width: 28.75rem) {
     html {
-        font-size: 55%;
+        font-size: 30%;
     }
 }
 
