@@ -41,7 +41,7 @@ html {
 }
 
 /* 460px / 16px = 28.75rem */
-@media (max-width: 50rem) {
+@media (max-width: 35rem) {
     html {
         font-size: 30%;
     }
@@ -73,17 +73,14 @@ body {
 
 .nav-element {
     margin: 1.5rem 3rem 1.5rem 3rem;
-    border-style: solid;
 }
 .nav-link:hover {
     background-color: var(--main-blue);
 }
 #connor-link {
     width: 100%;
-    border-style: dashed;
 }
 #connor-callahan {
-    border-style: solid;
     margin: 1.5rem 0 1.5rem 3rem;
     
     /* margin-right: 50rem; */
@@ -98,6 +95,19 @@ body {
     justify-content: center;
     align-items: center;
     background-image: linear-gradient(135deg, var(--main-gray), var(--tint-blue));
+}
+
+#down-arrow {
+    /* putting the arrow at the bottom */
+    position: absolute; 
+    bottom: 0;
+
+    font-size: 15rem;
+    transition: transform 0.3s ease-out;
+}
+
+#down-arrow:hover {
+    transform: translateY(0.5rem);
 }
 
 /* Projects Section */
@@ -150,7 +160,7 @@ a {
 
 .btn {
     display: inline-block;
-    width: 9rem;
+    width: 11rem;
     padding: 1rem;
     border-radius: 0.35rem;
     height: auto;
