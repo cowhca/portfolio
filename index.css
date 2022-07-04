@@ -1,99 +1,97 @@
 body {
-    background-color: #181A1B;
-    color: white;
+  background-color: #181a1b;
+  color: white;
 }
 
 a {
-    color: #3391ff;
+  color: #3391ff;
 }
 
 nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 h1 {
-    color: white !important;
-    font-size: 3rem;
-    margin: 0;
+  color: white !important;
+  font-size: 3rem;
+  margin: 0;
 }
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
 
 #main-panel {
-    width: 55%;
-    margin: auto;
-    /* background-color: var(--dark-brown); */
-    border-radius: .1rem;
+  width: 55%;
+  margin: auto;
+  border-radius: 0.1rem;
 }
 
 #content {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .content-section {
-    width: 40%;
-    /* border-style: solid; */
-    border: .1rem solid;
-    border-radius: .2rem;
+  width: 40%;
+  border: 0.1rem solid;
+  border-radius: 0.2rem;
 }
 
 footer {
-    margin-top: 3rem;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  margin-top: 3rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-footer>p {
-    margin: 0;
+footer > p {
+  margin: 0;
 }
 
-@media (min-width:320px) {
-    #main-panel {
-        width: 95%;
-    }
-    html {
-        font-size: .8rem;
-    }
+@media (min-width: 320px) {
+  #main-panel {
+    width: 95%;
+  }
+  html {
+    font-size: 0.8rem;
+  }
 }
 
-@media (min-width:481px) {
-    #main-panel {
-        width: 80%;
-    }
-    html {
-        font-size: .9rem;
-    }
+@media (min-width: 481px) {
+  #main-panel {
+    width: 80%;
+  }
+  html {
+    font-size: 0.9rem;
+  }
 }
 
-@media (min-width:961px) {
-    #main-panel {
-        width: 60%;
-    }
-    html {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width:1025px) {
-    #main-panel {
-        width: 55%;
-    }
-}
-
-@media (min-width:1281px) {
-    #main-panel {
-        width: 40%;
-    }
-}
-
-#metadata>h3 {
-    margin: 0;
+@media (min-width: 961px) {
+  #main-panel {
+    width: 60%;
+  }
+  html {
     font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  #main-panel {
+    width: 55%;
+  }
+}
+
+@media (min-width: 1281px) {
+  #main-panel {
+    width: 40%;
+  }
+}
+
+#metadata > h3 {
+  margin: 0;
+  font-size: 1rem;
 }
