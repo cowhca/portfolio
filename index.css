@@ -97,10 +97,6 @@ footer > p {
 }
 
 #goals {
-  margin: 2rem auto;
-  padding: 0.5rem;
-  width: 60rem;
+  margin: auto;
   text-align: center;
-  border: 0.1rem solid white;
-  border-radius: 0.1rem;
 }
