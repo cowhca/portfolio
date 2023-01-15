@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Connor Callahan</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="shortcut icon" href="Images/profile_pic.ico" />
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-M34F0V109N"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-M34F0V109N");
+    </script>
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html">
+        <h1>Connor Callahan</h1>
+      </a>
+    </nav>
+    <section id="main-panel">
+      <h2>Fixing My “Flickering” Issue With SvelteKit Server-Side Rendering</h2>
+      <section id="metadata">
+        <h3>Created: 2023-01-15</h3>
+        <h3>Last Modified: 2023-01-15</h3>
+      </section>
+
+      <section id="post-content">
+        <p>
+          Since using SvelteKit, I have noticed an peculiar issue when loading
+          data to a page. It is somewhat difficult for me to describe so I will
+          link an
+          <a href="https://test-sveltekit-double-loading.vercel.app/original"
+            >example</a
+          >.
+        </p>
+        <p>
+          When you load this page, you should see a number between 0 and 99
+          which is quickly replaced by another such number. It might be really
+          quick. Refreshing while disabling your browser cache might make it
+          more pronounced. I&rsquo;ve long wondered why such behavior existed,
+          but I recently asked on the r/sveltejs subreddit and received two
+          relevant suggestions.
+        </p>
+        <p>
+          The first was to load the data from
+          <code>+page.server.js</code> instead of <code>+page.js</code>. Because
+          <code>+page.js</code> is executed on the server and the client while
+          <code>+page.server.js</code> is only run on the server. Meaning the
+          value that I was seeing at first was from the server and then the
+          second value was from re-running <code>+page.js</code> on the client.
+          This approach worked in this example, you can see it at
+          <a
+            href="https://test-sveltekit-double-loading.vercel.app/using-page-server-js"
+            >here</a
+          >
+          .
+        </p>
+        <p>
+          However, on another project that already used
+          <code>+page.server.js</code> to load its data was still experiencing
+          this issue. Another commenter explained that this was the result of
+          server-side rendering. Which makes sense. I don&rsquo;t REALLY
+          understand server-side rendering, but my basic understanding is that
+          the server starts and then hands the website off to the client to
+          handle the rest. For this other project I went to the
+          <code>+page.js</code> of the relevant route and added
+          <code>export const ssr = false;</code> . This resolved the flickering
+          issue.
+        </p>
+        <p>I have a feeling that this solution is bad practice and a hack.</p>
+        <p>
+          A commenter suggested that I don&rsquo;t need to set SSR to false and
+          instead can just use <code>+page.server.js</code> &ldquo;and the SSR
+          will take care of itself&rdquo;.
+        </p>
+        <p>
+          By using <code>console.log</code> I have noticed differences between
+          these 3 approaches. In the original approach it logs both the log from
+          the <code>+page.js</code> and the <code>+page.svelte</code> on the
+          server and in the browser (client). Only the numbers that are longed
+          are different.
+        </p>
+        <div>
+          <div>
+            <figure>
+              <a href="Images/Screenshot_2023-01-13_at_4.29.02_PM.png"
+                ><img
+                  src="Images/Screenshot_2023-01-13_at_4.29.02_PM.png"
+                  alt=""
+              /></a>
+              <figcaption>Server log</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure>
+              <a href="Images/Screenshot_2023-01-13_at_4.28.48_PM.png"
+                ><img
+                  src="Images/Screenshot_2023-01-13_at_4.28.48_PM.png"
+                  alt=""
+              /></a>
+              <figcaption>Client log</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p>
+          By renaming <code>+page.js</code> to <code>+page.server.js</code> the
+          output on the server is the same but on the client it only logs from
+          <code>+page.svelte</code> .
+        </p>
+        <div>
+          <div>
+            <figure>
+              <a href="Images/Screenshot_2023-01-13_at_4.30.54_PM.png"
+                ><img
+                  src="Images/Screenshot_2023-01-13_at_4.30.54_PM.png"
+                  alt=""
+              /></a>
+              <figcaption>Server log</figcaption>
+            </figure>
+          </div>
+          <div>
+            <figure>
+              <a href="Images/Screenshot_2023-01-13_at_4.30.59_PM.png"
+                ><img
+                  src="Images/Screenshot_2023-01-13_at_4.30.59_PM.png"
+                  alt=""
+              /></a>
+              <figcaption>Client log</figcaption>
+            </figure>
+          </div>
+        </div>
+        <p>
+          Lastly,
+          <a
+            href="https://test-sveltekit-double-loading.vercel.app/disabling-ssr"
+            >when I disable SSR</a
+          >
+          in <code>+page.js</code> I get no logs on the server and get both
+          lines on the client. I think this illustrates how SSR works. Without
+          SSR, the client is responsible to run all scripts.
+        </p>
+        <p>
+          Anyways, server-side rendering is something I should understand more
+          if I want to master web development.
+        </p>
+      </section>
+    </section>
+    <footer>
+      <p>
+        <a target="_blank" href="https://twitter.com/cnnr_cllhn">twitter</a>
+      </p>
+      <p>
+        <a target="_blank" href="mailto: connorwhcallahan@gmail.com"
+          >connorwhcallahan@gmail.com</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
