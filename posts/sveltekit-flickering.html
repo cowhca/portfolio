@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Connor Callahan</title>
+    <meta
+      name="description"
+      content="An explanation of how I solved a recurring issue with server-side rendering in SvelteKit."
+    />
+    <title>SvelteKit Flickering Problem</title>
     <link rel="stylesheet" href="/index.css" />
     <link rel="shortcut icon" href="/images/profile_pic.ico" />
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -59,15 +63,15 @@
         <p>
           The first was to load the data from
           <code>+page.server.js</code> instead of <code>+page.js</code>. Because
-          <code>+page.js</code> is executed on the server and the client while
+          <code>+page.js</code> is run on both the server and the client while
           <code>+page.server.js</code> is only run on the server. Meaning the
           value that I was seeing at first was from the server and then the
           second value was from re-running <code>+page.js</code> on the client.
-          This approach worked in this example, you can see it at
+          Here is
           <a
             target="_blank"
             href="https://test-sveltekit-flickering.vercel.app/using-page-server-js"
-            >here</a
+            >an example of this technique</a
           >.
         </p>
         <p>
