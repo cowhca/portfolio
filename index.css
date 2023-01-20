@@ -29,6 +29,11 @@ h2 {
   border-radius: 0.1rem;
 }
 
+#posts > p,
+#projects > p {
+  margin: 0.1rem 0;
+}
+
 #content {
   display: flex;
   justify-content: space-evenly;
